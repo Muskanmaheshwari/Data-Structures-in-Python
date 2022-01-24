@@ -1,0 +1,20 @@
+import heapq
+def kthLargest(lst, k):
+    ######################
+    heapq._heapify_max(lst)
+    for i in range(k-1):
+        lst[0], lst[len(lst)-1]=lst[len(lst)-1],lst[0]
+        lst.pop()
+        heapq._heapify_max(lst)
+
+    return lst[0]
+    #PLEASE ADD CODE HERE#
+    ######################
+
+
+# Main
+n=int(input())
+lst=list(int(i) for i in input().strip().split(' '))
+k=int(input())
+ans=kthLargest(lst, k)
+print(ans)
